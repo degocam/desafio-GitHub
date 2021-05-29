@@ -1,0 +1,654 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+/*extend se ocupa para replicar algunos estilos que se ven primero en el index, en las páginas 
+de Nosotros y Acerca de Arica*/
+
+/*Mixins se va a utilizar para elementos repetitivos en el index en las imgs de los servicios del 
+hostla, en la página Habitaciones y Experiencias*/
+
+/*Variables para fondos*/
+$fondo-uno: linear-gradient(#1a3b71, #11224f);
+$fondo-dos: linear-gradient(#fb9b51, #f98126);
+$fondo-tres: url("../archivos/backpacker.jpg");
+$fondo-cuatro: linear-gradient(#3f3f3f, #030303);
+
+/*Variables para títulos*/
+$titulo-dos:600 22px 'Montserrat', sans-serif;
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    
+    h2{
+        // font-weight: 600;
+        // font-size: 22px;
+        font: $titulo-dos;
+        color: black;
+        padding: 30px;
+    }
+
+    h5{
+        font-weight: 500;
+        font-size: 15px;
+        color: black;
+        text-align: center;
+    }
+}
+
+.header__menuNav{
+    height: 10vh;
+        
+    ul{
+        background-color: #001d4e;
+        color: white;
+        width: 100vw;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+        a{
+            color: white;
+            padding: 20px;
+            width: 100%;
+            text-decoration: none;
+        }
+
+        ul li a:hover{
+            background-color: #1a3b71;
+            color: white;
+            font-weight: 500;
+        }
+}
+
+#main__covidInfo{
+    background-color: black;
+    width: 100vw;
+    height: 100%;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    align-self: center;
+    padding: 15px;
+}
+
+@mixin caract($border, $width, $height){
+    border-radius: $border;
+    width: $width;
+    height: $height;
+}
+
+.main__infoHostal{/*Estos estilos ordenan cada servicio que va con una foto y una descripción*/
+    display: flex;
+    flex-direction: column;
+    background-image: $fondo-tres;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    align-content: space-between;
+    width: 100vw;
+    height: 100%;
+    padding-bottom: 30px;
+
+    h1{/*titulo de la seccion*/
+        color: white;
+        text-align: center;
+        padding: 50px;
+    }
+
+    @keyframes slidIng {
+        to{
+            transform:translate(2%) 
+        } 
+    }
+
+    .caractHostal{/*ordena el div que contiene la foto mas su descripcion*/
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin: auto;
+        height: auto;
+        width: 100vw;
+        animation: slidIng 10s infinite linear alternate-reverse;
+    
+        div{/*alinea la foto con su descripción */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img{
+            @include caract(20px, auto, 150px);
+        }
+
+        
+        strong{/*descripcion de cada servicio del hostal*/
+            color: white;
+        }
+    }
+}
+
+.main__Habit{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 10px-5px;
+
+    h2{
+        text-align: center;
+    }
+}
+
+.main__Habit__modifier{/*Seccion de habitaciones*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    padding-right: 70px;
+    padding-left: 70px;
+    padding-top: 80px-75px;
+    background-color: white;
+
+    img{ 
+        width: 25vw;
+        height:auto;
+        border-radius: 20px;
+        padding-bottom: 15px;
+    }
+
+    img:hover{
+        transform: scale(103%);
+    }
+
+    h2{
+        color:black;
+    }
+
+    strong{
+        color: black;
+        font-size: 18px;
+        padding-top: 10em;
+        padding-bottom: 1em;
+    }
+}
+
+.videoInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: space-between;
+    width: 100vw;
+    height: auto;
+    padding: 50px 50px;
+    background-image: $fondo-dos;
+
+    iframe{
+        padding-right: 50px;
+    }
+}
+
+.textoCarrusel{ /*Aquí va el texto que acompaña a la foto*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 45vw;
+    height: auto;
+    // background-image: $fondo-uno;
+    font-weight: 700;
+    font-size: 25px;
+    color: white;
+    
+    h3{
+        padding: 15px;
+    }
+}
+
+#mensajeSunny{/*Estilos del padre que contiene el formulario*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100vw;
+    background-image: $fondo-uno;
+}
+
+.formContact{/*ordena los input de arriba hacia abajo y separa el formulario de la invitación a enviar un 
+    msje*/
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: auto;
+    padding: 20px;
+    color:white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*Para este caso, no ocupé la anidación SASS por que descomponía el diseño que quería*/
+.insertarText{
+    display: flex;
+    flex-direction: column;
+}
+
+.insertarText, select {/*le da forma al selector del país*/
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color:black;
+    font-family: 'Montserrat', sans-serif;
+}
+input[type=submit] {/*le da estilo al boton enviar*/
+  width: 20vw;
+  background-color: #ff831a;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+input[type=submit]:hover {
+    background-color: #fb9b51;
+    color:#001d4e
+}
+
+input[type=reset] {/*le da estilo al boton reset*/
+  width: 20vw;
+  background-color: #ff831a;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=reset]:hover {/*le da estilo al botón cuando el cursor pasa por encima*/
+  background-color: #fb9b51;
+  color:#001d4e
+}
+
+#mensajeInvit{/*ordena la invitación a enviar un msje*/
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-evenly;
+    width: 50vw;
+    height: auto;
+    
+    img{
+        width: 25vw;
+        height: auto;
+        border-radius: 20px;
+    }
+
+    p{
+        color: #F98126;
+        font-size: 25px;
+        font-weight: 700;
+    }
+}
+
+#footer__general{/*da estilo al footer*/
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    justify-content: space-evenly;
+    background-image: linear-gradient(#3f3f3f, #030303);
+    font-family: 'Montserrat', sans-serif;
+    width: 100vw;
+    height: auto;
+    padding: 50px 50px;
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        align-items: space-between;
+        text-decoration: none;
+        list-style: none;
+    }
+
+    li{
+        font-size: 16px;
+        font-weight: 200;
+        padding-top: 10px;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+  
+        a:hover {
+        color: #fb9b51;
+        text-decoration: none;
+        }
+
+    p{
+        font-size: 11px;
+        color: #fff;
+        padding-top: 100px;
+    }
+}
+
+/*Estilos página habitaciones*/
+
+@mixin serviciosHabit ($border, $borderColor, $borderWidth, $tamanioFont){ /*Le da forma a los contenedores con los servicios*/
+    border-radius: $border;
+    border-color: $borderColor;
+    border-width: $borderWidth;
+    font-size: $tamanioFont;    
+}
+
+#main__titulo__Habitaciones{
+    font-size: 30px;
+    padding: 30px;
+}
+
+#main__rooms__infoHabit{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100vw;
+    height: 5vw;
+}
+
+.main__rooms__caracts{
+    border-style: solid;
+    width: auto;
+    height: auto;
+    @include serviciosHabit(10px, #030303, 1px, 16px);
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    font-weight: 400;
+    padding: 15px 15px 0.1px 15px;
+}
+
+#main__subtitulo_Habitaciones{
+        font-size: 30px;
+        padding: 45px;
+}
+
+.main__rooms__infoHabit__modifier{
+    border-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: none;
+    justify-content: space-between;
+    width: 100vw;
+    height: auto;
+    padding-bottom: 20px;
+
+    .main__rooms__cardMatrimonial{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        width: 40vw;
+        height: auto;
+        padding: 20px;
+        margin: 10px;
+        background-image: $fondo-dos;
+        border-radius: 20px;
+        color: white;
+
+        img{
+            height: 200px;
+            width: 200px;
+            border-radius: 20px;
+            padding: 10px;
+        }
+
+        .card-title{
+            text-align: left;
+            font-size: 20px;
+            font-weight: 700px;
+            color: white;
+        }
+
+        .card-text{
+            font-size: 16px;
+        }
+    }
+}
+
+/*Estilo de la sección Nosotros*/
+#main__nosotros{
+    @extend.main__infoHostal;
+    display: flex;
+    flex-direction: column;
+}
+
+    #main__nosotros_modifier{   
+        display: flex;
+        flex-direction: row;
+        
+        p{/*Se ejecuta una vez, para verla de nuevo hay que cargar la pagina de Nosotros de nuevo*/
+            width: 50vw;
+            height: auto;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: white;
+            padding: 35px;
+            text-align: justify;
+            animation-name: opacityUs;
+            animation-duration: 4s;
+            animation-iteration-count: 1;
+            animation-direction: normal;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease-out;
+        }
+
+        img{/*También se ejecuta una vez, para verla de nuevo hay que cargar la pagina de Nosotros de nuevo*/
+            width: auto;
+            height: 25vw;
+            border-radius: 20px;
+            padding: 2em;
+            animation-name: opacityUs;
+            animation-duration: 3s;
+            animation-iteration-count: 1;
+            animation-direction: normal;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease-out;
+        }
+    }
+
+@keyframes opacityUs {
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }    
+}
+
+/*Estilo de la página Acerca de Arica, que es parecido al estilo de Nosotros, salvo por el color de fondo,
+el tamaño de fuente y el tamaño de las imagenes*/
+.aboutARI{
+    @extend.main__Habit;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100%;
+    // background-image: $fondo-uno;
+    // justify-content: space-evenly;
+    // align-items: center;
+
+    p{
+        width: 50vw;
+        height: auto;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        color: black;
+        padding: 35px;
+        text-align: justify;
+    }
+
+    img{
+        width: 25vw;
+        height: auto;
+        border-radius: 35px;
+        padding-top: 20px;
+        padding-bottom: 15px;
+    }
+}
+
+/*Estilos de la página Experiencias*/
+
+@mixin estiloOpinion($radius, $color, $grosor){
+    border-radius: $radius;
+    border-color: $color;
+    border-width: $grosor;
+}
+.opiniones{
+    display: flex;
+    flex-direction: row;
+    align-content:space-around;
+    justify-content: space-evenly;
+    width: 100vw;
+    height: auto;
+    border-style: solid;
+    @include estiloOpinion(1em, #030303, 1px);
+    padding: 20px;
+    margin: 25px;
+}
+
+.huespedInfo{
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    height: auto;
+    
+    h11{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 19px;
+        color: black;
+    }
+
+    h12{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 17px;
+        color: black;
+    }
+
+
+    h13{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 300;
+        font-size: 15px;
+        color: black;
+    }
+}
+
+.reseña{
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    height: auto;
+    padding-right: 60px;
+
+    p{
+        text-align: justify;
+    }
+}
+
+/*Estilos MQ para diseño responsive*/
+@media  only screen and (max-width:768px) {
+/*Así es como queda el navegador cuando la pantalla baja de 768px de ancho*/
+    .header__menuNav{
+        height: 20vh; 
+    
+        ul{
+            background-color: #001d4e;
+            color: white;
+            width: 100vw;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-weight: 200;
+            font-size: 12px;
+        }
+
+        a{
+            color: white;
+            height: auto;
+            text-decoration: none;
+        }
+
+        ul li a:hover{
+            background-color: #1a3b71;
+            color: white;
+            font-weight: 500;
+            height: auto;
+            font-size: 12px;
+        }
+    }
+
+    /*Este es el estilo responsive para los servicios del hostal*/
+    .main__infoHostal{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        img{
+        display: none;
+        }
+    }
+
+    #main__covidInfo{
+        width: 100vw;
+        height: 10vh;
+        font-size: 1.1em;
+    }
+
+    /*Este estilo borra las descripciones de las en la parte superior de las habitaciones*/
+    .main__Habit{
+        display: none;
+    }
+
+    s/*Aqui se cambia la forma en que se justifican los elementos en la pagina Nosotros en su version responsive*/
+    .main__nosotros{
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100vw;
+        height: auto;
+        background-image: $fondo-dos;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-top: 20px;
+
+        img{
+            height: 50vh;
+        }
+
+        p{
+            width: 90vw;
+        }
+    }
+}
